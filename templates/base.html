@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Lore Blog</title>
+    </head>
+
+    <body>
+        <div class="container">
+            {% if not user %}
+                <p class="logged-in">Please Sign in or Sign up.</p>
+                <a href="/login" class="nav-top">
+                    Login
+                </a>
+                <a href="/signup" class="nav-top">
+                    Sign up
+                </a>
+            {% else %}
+                <p class="logged-in">User: {{user.name}}</p>
+                <a href="/logout" class="nav-top">
+                    Logout
+                </a>
+                <a href="/blog/newpost" class="nav-top">
+                    Newpost
+                </a>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
